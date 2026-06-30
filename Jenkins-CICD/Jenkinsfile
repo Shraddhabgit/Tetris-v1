@@ -37,20 +37,21 @@ pipeline{
        
         stage('Terraform init'){
             steps{
-                sh 'terraform init'
+                sh '''
+                cd Jenkins-CICD
+                terraform init
+                '''
             }
         }
         stage('Terraform plan'){
             steps{
-                sh '''
-                cd Jenkins-CICD
-                terraform plan
-                '''
+                sh 'terraform plan'
+                
             }
         }
         stage('Terraform apply'){
             steps{
-                sh 'terraform ${action} --auto approve'
+                sh 'terraform apply'
             }
         }
     }
