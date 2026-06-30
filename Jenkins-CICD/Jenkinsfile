@@ -42,7 +42,10 @@ pipeline{
         }
         stage('Terraform plan'){
             steps{
-                sh 'terraform plan'
+                sh '''
+                cd Jenkins-CICD
+                terraform plan
+                '''
             }
         }
         stage('Terraform apply'){
