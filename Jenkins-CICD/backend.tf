@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket         = var.bucket_name
-    key            = "my-terraform-environment/main"
-    region         = var.aws_region
-    dynamodb_table = var.dynamodb_table
+    bucket         = "shraddha-terraform-state"
+    region         = "ap-south-1"
+    dynamodb_table = "terraform-locks"
+    key            = "prod/terraform.tfstate"
   }
 }
